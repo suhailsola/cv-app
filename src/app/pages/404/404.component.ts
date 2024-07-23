@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ButtonComponent } from "../components/button/button.component";
+import { ButtonComponent } from '../../components/button/button.component';
 
 @Component({
   selector: 'app-404',

@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { ProfileComponent } from './profile/profile.component';
-import { FourOhFourComponent } from './404/404.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { FourOhFourComponent } from './pages/404/404.component';
 
 export const routes: Routes = [
   {
