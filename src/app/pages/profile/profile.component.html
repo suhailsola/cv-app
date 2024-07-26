@@ -1,123 +1,159 @@
-<div class="h-screen w-full flex justify-center">
-  <div class="pt-20 flex flex-col items-center w-3/5 gap-4">
-    <h1 class="text-6xl font-bold">
-      {{ profileData ? "Update Profile" : "Create Profile" }}
-    </h1>
-    <div class="w-full">
-      <form
-        class="flex flex-col items-start justify-center gap-4 border border-black rounded-md p-6"
-        [formGroup]="profileForm"
-        (ngSubmit)="onSubmit()"
-      >
-        <label class="font-semibold w-full" for="firstName">First Name:</label>
-        <input
-          class="px-2 py-1 outline-none rounded-sm w-full"
-          id="firstName"
-          type="text"
-          formControlName="firstName"
-          placeholder="Enter your first name"
-        />
-        <div
-          *ngIf="
-            profileForm.get('firstName')?.invalid &&
-            profileForm.get('firstName')?.touched
-          "
-          class="text-red-500"
+<div class="min-h-screen w-full flex justify-center font-Roboto">
+  <!-- <div class="py-20 flex flex-col items-center w-3/5 gap-4 h-full"> -->
+  <div
+    class="flex flex-col items-center justify-center w-3/5 gap-3 py-3 shadow-lg"
+  >
+    <div
+      class="w-full flex flex-col bg-slate-50 pt-10 py-3 items-center justify-center"
+    >
+      <h1 class="text-4xl font-bold">
+        {{ data ? "Edit" : "Create" }} your Profile
+      </h1>
+
+      <div class="w-5/6">
+        <form
+          class="flex flex-col items-start justify-center gap-4 rounded-md p-6"
+          [formGroup]="profileForm"
+          (ngSubmit)="onSubmit()"
         >
-          First Name is required
-        </div>
+          <div class="w-full space-y-2">
+            <label class="font-medium w-full text-gray-400" for="firstName"
+              >First Name</label
+            >
+            <input
+              class="p-3 outline-none rounded-md w-full border font-semibold"
+              id="firstName"
+              type="text"
+              formControlName="firstName"
+            />
+            <span
+              *ngIf="
+                profileForm.get('firstName')?.invalid &&
+                profileForm.get('firstName')?.touched
+              "
+              class="text-red-500 pl-3 text-sm"
+            >
+              First Name required
+            </span>
+          </div>
+          <!-- Last name -->
+          <div class="w-full space-y-2">
+            <label class="font-medium w-full text-gray-400" for="lastName"
+              >Last Name</label
+            >
+            <input
+              class="p-3 outline-none rounded-md w-full border font-semibold"
+              id="lastName"
+              type="text"
+              formControlName="lastName"
+            />
+            <span
+              *ngIf="
+                profileForm.get('lastName')?.invalid &&
+                profileForm.get('lastName')?.touched
+              "
+              class="text-red-500 pl-3 text-sm"
+            >
+              Last name required
+            </span>
+          </div>
+          <!-- Birthdate -->
+          <div class="w-full space-y-2">
+            <label class="font-medium w-full text-gray-400" for="birth_date"
+              >Birthdate</label
+            >
+            <input
+              class="p-3 outline-none rounded-md w-full border font-semibold"
+              id="birth_date"
+              type="date"
+              formControlName="birth_date"
+            />
+            <span
+              *ngIf="
+                profileForm.get('birth_date')?.invalid &&
+                profileForm.get('birth_date')?.touched
+              "
+              class="text-red-500 pl-3 text-sm"
+            >
+              Birthdate required
+            </span>
+          </div>
+          <!-- Address -->
+          <div class="w-full space-y-2">
+            <label class="font-medium w-full text-gray-400" for="address"
+              >Address</label
+            >
+            <input
+              class="p-3 outline-none rounded-md w-full border font-semibold"
+              id="address"
+              type="text"
+              formControlName="address"
+            />
+            <span
+              *ngIf="
+                profileForm.get('address')?.invalid &&
+                profileForm.get('address')?.touched
+              "
+              class="text-red-500 pl-3 text-sm"
+            >
+              Address required
+            </span>
+          </div>
+          <!-- Gender -->
+          <div class="w-full space-y-2">
+            <label class="font-medium w-full text-gray-400" for="gender"
+              >Gender</label
+            >
 
-        <label class="font-semibold w-full" for="lastName">Last Name:</label>
-        <input
-          class="px-2 py-1 outline-none rounded-sm w-full"
-          id="lastName"
-          type="text"
-          formControlName="lastName"
-          placeholder="Enter your last name"
-        />
-        <div
-          *ngIf="
-            profileForm.get('lastName')?.invalid &&
-            profileForm.get('lastName')?.touched
-          "
-          class="text-red-500"
-        >
-          Last Name is required
-        </div>
+            <select
+              class="p-3 outline-none rounded-md w-full border font-semibold"
+              id="gender"
+              formControlName="gender"
+            >
+              <option value="">Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+            <span
+              *ngIf="
+                profileForm.get('gender')?.invalid &&
+                profileForm.get('gender')?.touched
+              "
+              class="text-red-500 pl-3 text-sm"
+            >
+              Gender required
+            </span>
+          </div>
+          <!-- Introduction -->
+          <div class="w-full space-y-2">
+            <label class="font-medium w-full text-gray-400" for="introduction"
+              >Introduction</label
+            >
+            <textarea
+              class="p-3 outline-none rounded-md w-full border font-semibold"
+              id="introduction"
+              type="text"
+              formControlName="introduction"
+            ></textarea>
+          </div>
 
-        <label class="font-semibold w-full" for="birthDate">Birth Date:</label>
-        <input
-          class="px-2 py-1 outline-none rounded-sm w-full"
-          id="birthDate"
-          type="date"
-          formControlName="birth_data"
-        />
-        <div
-          *ngIf="
-            profileForm.get('birth_data')?.invalid &&
-            profileForm.get('birth_data')?.touched
-          "
-          class="text-red-500"
-        >
-          Birth Date is required
-        </div>
-
-        <label class="font-semibold w-full" for="address">Address:</label>
-        <input
-          class="px-2 py-1 outline-none rounded-sm w-full"
-          id="address"
-          type="text"
-          formControlName="address"
-          placeholder="Enter your address"
-        />
-        <div
-          *ngIf="
-            profileForm.get('address')?.invalid &&
-            profileForm.get('address')?.touched
-          "
-          class="text-red-500"
-        >
-          Address is required
-        </div>
-
-        <label class="font-semibold w-full" for="gender">Gender:</label>
-        <select
-          class="px-2 py-1 outline-none rounded-sm w-full"
-          id="gender"
-          formControlName="gender"
-        >
-          <option value="">Select Gender</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="other">Other</option>
-        </select>
-
-        <label class="font-semibold w-full" for="introduction"
-          >Introduction:</label
-        >
-        <textarea
-          class="px-2 py-1 outline-none rounded-sm w-full"
-          id="introduction"
-          formControlName="introduction"
-          placeholder="Tell us about yourself"
-        ></textarea>
-
-        <div class="w-full flex items-center justify-center flex-col">
-          <p
-            class="text-red-500"
-            *ngIf="profileForm.invalid && profileForm.touched"
-          >
-            Complete the form to enable the button.
-          </p>
-
-          <button
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-[100px]"
-            [disabled]="profileForm.invalid"
-          >
-            {{ profileData ? "Update" : "Create" }}
-          </button>
-        </div>
-      </form>
+          <div class="w-full flex items-center justify-center flex-col">
+            <button
+              class="bg-gradient-to-r from-emerald-500 to-sky-500 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-l-full rounded-r-full w-2/5 disabled:bg-slate-400 hover:opacity-75"
+              [disabled]="profileForm.invalid"
+            >
+              {{ data ? "Update" : "Create" }}
+            </button>
+            <span
+              class="text-red-500 text-sm"
+              *ngIf="profileForm.invalid && profileForm.touched"
+            >
+              Complete form to enable button.
+            </span>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>

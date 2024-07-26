@@ -4,11 +4,13 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { FourOhFourComponent } from './pages/404/404.component';
+import { EduComponent } from './pages/edu/edu.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    redirectTo: 'login',
+    pathMatch: 'full',
   },
   {
     path: 'profile',
@@ -21,6 +23,10 @@ export const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent,
+  },
+  {
+    path: 'edu',
+    component: EduComponent,
   },
   {
     path: '**',

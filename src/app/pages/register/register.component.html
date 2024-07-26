@@ -1,41 +1,64 @@
 <div class="h-screen w-full flex justify-center">
-  <div class="pt-20 flex flex-col items-center w-3/5 gap-4">
-    <h1 class="text-6xl font-bold">Register</h1>
-    <div class="w-full">
+  <div class="flex flex-col items-center justify-center w-3/5 gap-4">
+    <div
+      class="w-full flex flex-col bg-slate-50 py-3 items-center justify-center"
+    >
+      <h1 class="text-4xl font-bold text-center text-sky-700 py-3">
+        Register an account
+      </h1>
       <form
-        class="flex flex-col items-start justify-center gap-1 border border-black rounded-md p-4"
+        class="flex flex-col items-start justify-center gap-3 w-3/5 p-4"
         [formGroup]="registerForm"
         (ngSubmit)="onSubmit()"
       >
-        <label class="font-semibold" for="username">Username:</label>
-        <input
-          class="px-2 py-1 outline-none rounded-sm w-full"
-          type="username"
-          name="username"
-          formControlName="username"
-          placeholder="Please insert a username"
-        />
-        <label class="font-semibold" for="email">Email:</label>
-        <input
-          class="px-2 py-1 outline-none rounded-sm w-full"
-          type="email"
-          name="email"
-          formControlName="email"
-          placeholder="Insert your email address"
-        />
-        <label class="font-semibold" for="password">Password:</label>
-        <input
-          class="px-2 py-1 outline-none rounded-sm w-full"
-          type="password"
-          formControlName="password"
-          placeholder="Enter your password"
-        />
-        <div class="w-full flex items-center justify-center py-2 flex-col">
+        <div class="w-full">
+          <input
+            class="px-2 py-1 outline-none w-full text-lg"
+            type="username"
+            name="username"
+            formControlName="username"
+            placeholder="Username"
+          />
+          <hr
+            class="w-full bg-gradient-to-r from-emerald-500 to-sky-500 h-[2px]"
+          />
+        </div>
+        <div class="w-full">
+          <input
+            class="px-2 py-1 outline-none w-full text-lg"
+            type="email"
+            name="email"
+            formControlName="email"
+            placeholder="Email"
+          />
+          <hr
+            class="w-full bg-gradient-to-r from-emerald-500 to-sky-500 h-[2px]"
+          />
+        </div>
+
+        <div class="w-full">
+          <input
+            class="px-2 py-1 outline-none w-full text-lg"
+            type="password"
+            formControlName="password"
+            placeholder="Password"
+          />
+          <hr
+            class="w-full bg-gradient-to-r from-emerald-500 to-sky-500 h-[2px]"
+          />
+        </div>
+        <div class="w-full flex flex-col items-center justify-center">
           <button
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-[100px]"
+            class="bg-gradient-to-r from-emerald-500 to-sky-500 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-l-full rounded-r-full w-2/5 disabled:bg-slate-400 hover:opacity-75"
           >
-            Submit
+            Register
           </button>
+          <p class="text-gray-600 pt-5">
+            Already have an account?
+            <a class="text-sky-700 hover:text-red-700" [routerLink]="['/login']"
+              >Sign in</a
+            >
+          </p>
         </div>
       </form>
     </div>
