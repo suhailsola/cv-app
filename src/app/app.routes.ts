@@ -5,6 +5,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { FourOhFourComponent } from './pages/404/404.component';
 import { EduComponent } from './pages/edu/edu.component';
+import { CareerComponent } from './pages/career/career.component';
 
 export const routes: Routes = [
   {
@@ -27,6 +28,10 @@ export const routes: Routes = [
   {
     path: 'edu',
     component: EduComponent,
+  },
+  {
+    path: 'career',
+    component: CareerComponent,
   },
   {
     path: '**',

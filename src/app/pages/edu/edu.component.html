@@ -1,8 +1,178 @@
-<div class="min-h-screen w-full flex flex-col justify-between items-center">
-  <div>
-    <h1 class="text-4xl font-bold">Education</h1>
-    <div class="w-3/5 flex flex-col bg-slate-50">
-      <div *ngFor="let edu of data">test</div>
+<div
+  class="min-h-screen w-full flex flex-col justify-between gap-2 items-center relative"
+>
+  <div class="flex flex-col items-center justify-center w-2/5 sm:w-3/5 gap-4">
+    <div
+      class="w-full flex flex-col bg-slate-50 py-3 items-center justify-center"
+    >
+      <h1 class="text-4xl font-bold py-2">Education</h1>
+      <div class="w-3/5 sm:w-4/5 flex flex-col gap-2 bg-slate-50">
+        <div *ngFor="let edu of data">
+          <app-edu-card [data]="edu"></app-edu-card>
+        </div>
+      </div>
     </div>
+  </div>
+  <div
+    class="w-4/6 sm:w-3/5 flex flex-col bg-slate-50 py-3 items-center justify-center mb-1 shadow-md"
+  >
+    <h1 class="text-2xl font-bold my-2">Update your education</h1>
+    <form
+      class="w-4/6 flex flex-col gap-1"
+      [formGroup]="educationForm"
+      (ngSubmit)="onSubmit()"
+    >
+      <div class="w-full flex items-start justify-center">
+        <div class="w-full flex flex-col">
+          <label class="font-medium w-full text-gray-400" for="institute"
+            >Institution</label
+          ><span
+            *ngIf="
+              educationForm.get('institute')?.invalid &&
+              educationForm.get('institute')?.touched
+            "
+            class="text-red-500 text-xs"
+          >
+            Institution is required
+          </span>
+        </div>
+        <input
+          class="p-1 outline-none rounded-md w-full border text-sm"
+          id="institute"
+          type="text"
+          formControlName="institute"
+        />
+      </div>
+
+      <!-- Cert name -->
+      <div class="w-full flex items-start justify-center">
+        <div class="w-full flex flex-col">
+          <label class="font-medium w-full text-gray-400" for="certificate_name"
+            >Certificate Name</label
+          >
+          <span
+            *ngIf="
+              educationForm.get('certificate_name')?.invalid &&
+              educationForm.get('certificate_name')?.touched
+            "
+            class="text-red-500 text-xs"
+          >
+            Certificate name is required
+          </span>
+        </div>
+        <input
+          class="p-1 outline-none rounded-md w-full border text-sm"
+          id="certificate_name"
+          type="text"
+          formControlName="certificate_name"
+        />
+      </div>
+
+      <!-- Level -->
+      <div class="w-full flex items-start justify-center">
+        <div class="w-full flex flex-col">
+          <label class="font-medium w-full text-gray-400" for="level"
+            >Level</label
+          >
+          <span
+            *ngIf="
+              educationForm.get('level')?.invalid &&
+              educationForm.get('level')?.touched
+            "
+            class="text-red-500 text-xs"
+          >
+            Level is required
+          </span>
+        </div>
+        <!-- select -->
+        <input
+          class="p-1 outline-none rounded-md w-full border text-sm"
+          id="level"
+          type="text"
+          formControlName="level"
+        />
+      </div>
+      <!-- Start year -->
+      <div class="w-full flex items-start justify-center">
+        <div class="w-full flex flex-col">
+          <label class="font-medium w-full text-gray-400" for="start_year"
+            >Star year</label
+          >
+          <span
+            *ngIf="
+              educationForm.get('start_year')?.invalid &&
+              educationForm.get('start_year')?.touched
+            "
+            class="text-red-500 text-xs"
+          >
+            Star year is required
+          </span>
+        </div>
+        <input
+          class="p-1 outline-none rounded-md w-full border text-sm"
+          id="start_year"
+          type="number"
+          formControlName="start_year"
+        />
+      </div>
+      <!-- End year -->
+      <div class="w-full flex items-start justify-center">
+        <div class="w-full flex flex-col">
+          <label class="font-medium w-full text-gray-400" for="end_year"
+            >End year</label
+          >
+          <span
+            *ngIf="
+              educationForm.get('end_year')?.invalid &&
+              educationForm.get('end_year')?.touched
+            "
+            class="text-red-500 text-xs"
+          >
+            End year is required
+          </span>
+        </div>
+        <input
+          class="p-1 outline-none rounded-md w-full border text-sm"
+          id="end_year"
+          type="number"
+          formControlName="end_year"
+        />
+      </div>
+      <!-- Summary -->
+      <div class="w-full flex items-start justify-center">
+        <label class="font-medium w-full text-gray-400" for="summary"
+          >Summary</label
+        >
+        <span
+          *ngIf="
+            educationForm.get('summary')?.invalid &&
+            educationForm.get('summary')?.touched
+          "
+          class="text-red-500 text-xs"
+        >
+          Summary is required
+        </span>
+        <textarea
+          class="p-1 outline-none rounded-md w-full border text-sm"
+          id="summary"
+          type="text"
+          formControlName="summary"
+        ></textarea>
+      </div>
+      <div class="w-full flex items-center justify-center flex-col mt-2">
+        <button
+          class="bg-gradient-to-r from-emerald-500 to-sky-500 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-l-full rounded-r-full w-2/5 disabled:bg-slate-400 hover:opacity-75"
+          [disabled]="educationForm.invalid"
+        >
+          Update education
+        </button>
+        <span
+          class="text-red-500 text-xs"
+          *ngIf="educationForm.invalid && educationForm.touched"
+        >
+          Complete form to enable button.
+        </span>
+      </div>
+    </form>
   </div>
 </div>
