@@ -29,7 +29,7 @@ export class LoginComponent {
       console.log(this.loginForm.value);
       this.authService.login(this.loginForm.value).subscribe((data: any) => {
         console.log(data);
-        this.router.navigate(['/profile']);
+        this.router.navigate(['/user/profile']);
       });
     }
   }

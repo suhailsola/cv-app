@@ -4,7 +4,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        Roboto: ["Roboto", "sans-serif"],
+        roboto: ["Roboto", "sans-serif"],
+        garamond: ["Cormorant Garamond", "sans-serif"],
       },
     },
   },

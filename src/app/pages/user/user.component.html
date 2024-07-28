@@ -1,0 +1,35 @@
+<div class="min-h-screen w-full flex flex-col items-center">
+  <div class="flex flex-col items-center justify-start w-full py-3 relative">
+    <header
+      class="bg-slate-50 w-2/5 sm:w-3/5 fixed top-0 z-10 h-14 border-b flex items-center justify-center"
+    >
+      <nav class="w-full flex items-center justify-center gap-4 font-sans">
+        <a class="hover:text-lg hover:font-medium" routerLink="/user/profile"
+          >Profile</a
+        >
+        <a class="hover:text-lg hover:font-medium" routerLink="/user/social"
+          >Social</a
+        >
+        <a class="hover:text-lg hover:font-medium" routerLink="/user/edu"
+          >Education</a
+        >
+        <a class="hover:text-lg hover:font-medium" routerLink="/user/career"
+          >Career</a
+        >
+        <a class="hover:text-lg hover:font-medium" routerLink="/user/skills"
+          >Skills</a
+        >
+        <a class="hover:text-lg hover:font-medium" routerLink="/user/cv">CV</a>
+        <p
+          class="hover:text-lg hover:font-medium text-red-600"
+          (click)="logout()"
+        >
+          Logout
+        </p>
+      </nav>
+    </header>
+    <main class="w-full mt-10">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

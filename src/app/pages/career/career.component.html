@@ -1,7 +1,224 @@
-<div class="min-h-screen w-full flex flex-col items-center">
-  <div
-    class="flex flex-col items-center justify-start w-2/5 sm:w-3/5 gap-4 min-h-screen bg-slate-50 py-3"
-  >
-    <app-career-card></app-career-card>
+<div class="w-full flex flex-col justify-start gap-2 items-center">
+  <h1 class="text-4xl font-bold py-2">Career</h1>
+  <div class="w-full flex items-start justify-between gap-4 px-6">
+    <div
+      class="w-4/6 sm:w-3/5 flex flex-col bg-slate-50 py-3 gap-4 items-center justify-center mb-1 shadow-md"
+    >
+      <h1 class="text-2xl font-bold my-2">Update your Career</h1>
+      <form
+        class="w-4/6 flex flex-col gap-1"
+        [formGroup]="careerForm"
+        (ngSubmit)="onSubmit()"
+      >
+        <div class="w-full flex items-start justify-center">
+          <div class="w-full flex flex-col">
+            <label class="font-medium w-full text-gray-400" for="company"
+              >Company</label
+            ><span
+              *ngIf="
+                careerForm.get('company')?.invalid &&
+                careerForm.get('company')?.touched
+              "
+              class="text-red-500 text-xs"
+            >
+              Institution is required
+            </span>
+          </div>
+          <input
+            class="p-1 outline-none rounded-md w-full border text-sm"
+            id="company"
+            type="text"
+            formControlName="company"
+          />
+        </div>
+
+        <!-- Worktitle -->
+        <div class="w-full flex items-start justify-center">
+          <div class="w-full flex flex-col">
+            <label class="font-medium w-full text-gray-400" for="work_title"
+              >Position</label
+            >
+            <span
+              *ngIf="
+                careerForm.get('work_title')?.invalid &&
+                careerForm.get('work_title')?.touched
+              "
+              class="text-red-500 text-xs"
+            >
+              Position is required
+            </span>
+          </div>
+          <input
+            class="p-1 outline-none rounded-md w-full border text-sm"
+            id="work_title"
+            type="text"
+            formControlName="work_title"
+          />
+        </div>
+
+        <!-- location -->
+        <div class="w-full flex items-start justify-center">
+          <div class="w-full flex flex-col">
+            <label class="font-medium w-full text-gray-400" for="location"
+              >Location</label
+            >
+            <span
+              *ngIf="
+                careerForm.get('location')?.invalid &&
+                careerForm.get('location')?.touched
+              "
+              class="text-red-500 text-xs"
+            >
+              Location is required
+            </span>
+          </div>
+          <!-- select -->
+          <input
+            class="p-1 outline-none rounded-md w-full border text-sm"
+            id="location"
+            type="text"
+            formControlName="location"
+          />
+        </div>
+        <!-- Start year -->
+        <div class="w-full flex items-start justify-center">
+          <div class="w-full flex flex-col">
+            <label class="font-medium w-full text-gray-400" for="start_year"
+              >Start year</label
+            >
+            <span
+              *ngIf="
+                careerForm.get('start_year')?.invalid &&
+                careerForm.get('start_year')?.touched
+              "
+              class="text-red-500 text-xs"
+            >
+              Star year is required
+            </span>
+          </div>
+          <input
+            class="p-1 outline-none rounded-md w-full border text-sm"
+            id="start_year"
+            type="number"
+            formControlName="start_year"
+          />
+        </div>
+        <!-- Start month -->
+        <div class="w-full flex items-start justify-center">
+          <div class="w-full flex flex-col">
+            <label class="font-medium w-full text-gray-400" for="start_month"
+              >Start month</label
+            >
+            <span
+              *ngIf="
+                careerForm.get('start_month')?.invalid &&
+                careerForm.get('start_month')?.touched
+              "
+              class="text-red-500 text-xs"
+            >
+              Star year is required
+            </span>
+          </div>
+          <input
+            class="p-1 outline-none rounded-md w-full border text-sm"
+            id="start_month"
+            type="number"
+            formControlName="start_month"
+          />
+        </div>
+        <!-- End year -->
+        <div class="w-full flex items-start justify-center">
+          <div class="w-full flex flex-col">
+            <label class="font-medium w-full text-gray-400" for="end_year"
+              >End year</label
+            >
+            <span
+              *ngIf="
+                careerForm.get('end_year')?.invalid &&
+                careerForm.get('end_year')?.touched
+              "
+              class="text-red-500 text-xs"
+            >
+              End year is required
+            </span>
+          </div>
+          <input
+            class="p-1 outline-none rounded-md w-full border text-sm"
+            id="end_year"
+            type="number"
+            formControlName="end_year"
+          />
+        </div>
+        <!-- end month -->
+        <div class="w-full flex items-start justify-center">
+          <div class="w-full flex flex-col">
+            <label class="font-medium w-full text-gray-400" for="end_month"
+              >End month</label
+            >
+            <span
+              *ngIf="
+                careerForm.get('end_month')?.invalid &&
+                careerForm.get('end_month')?.touched
+              "
+              class="text-red-500 text-xs"
+            >
+              End month is required
+            </span>
+          </div>
+          <input
+            class="p-1 outline-none rounded-md w-full border text-sm"
+            id="end_month"
+            type="number"
+            formControlName="end_month"
+          />
+        </div>
+        <!-- Summary -->
+        <div class="w-full flex items-start justify-center">
+          <label class="font-medium w-full text-gray-400" for="summary"
+            >Summary</label
+          >
+          <span
+            *ngIf="
+              careerForm.get('summary')?.invalid &&
+              careerForm.get('summary')?.touched
+            "
+            class="text-red-500 text-xs"
+          >
+            Summary is required
+          </span>
+          <textarea
+            class="p-1 outline-none rounded-md w-full border text-sm"
+            id="summary"
+            type="text"
+            formControlName="summary"
+          ></textarea>
+        </div>
+        <div class="w-full flex items-center justify-center flex-col mt-2">
+          <button
+            class="bg-gradient-to-r from-emerald-500 to-sky-500 hover:bg-blue-700 text-white font-bold py-3 px-2 rounded-l-full rounded-r-full w-2/5 disabled:bg-slate-400 hover:opacity-75 text-nowrap text-center"
+            [disabled]="careerForm.invalid"
+          >
+            Update career
+          </button>
+          <span
+            class="text-red-500 text-xs"
+            *ngIf="careerForm.invalid && careerForm.touched"
+          >
+            Complete form to enable button.
+          </span>
+        </div>
+      </form>
+    </div>
+    <div class="flex flex-col items-center justify-center w-2/5 sm:w-3/5 gap-4">
+      <div
+        class="w-full flex flex-col bg-slate-50 py-3 items-center justify-center min-h-[400px]:"
+      >
+        <div class="w-3/5 sm:w-4/5 flex flex-col gap-2 bg-slate-50">
+          <div *ngFor="let career of data">
+            <app-career-card [data]="career"></app-career-card>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

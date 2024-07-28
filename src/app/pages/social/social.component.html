@@ -1,0 +1,100 @@
+<div class="w-full flex justify-center font-roboto">
+  <div
+    class="flex flex-col items-center justify-center w-2/5 sm:w-3/5 gap-3 py-3"
+  >
+    <div
+      class="flex flex-col w-2/5 sm:w-full bg-slate-50 pt-10 py-3 items-center justify-center shadow-lg"
+    >
+      <h1 class="text-4xl font-bold">
+        {{ data ? "Edit" : "Update" }} your social accounts
+      </h1>
+
+      <div class="w-5/6">
+        <form
+          class="flex flex-col items-start justify-center gap-4 rounded-md p-6"
+          [formGroup]="socialForm"
+          (ngSubmit)="onSubmit()"
+        >
+          <div class="w-full space-y-2">
+            <label class="w-full text-gray-400" for="mobile"
+              >Phone Number</label
+            >
+            <input
+              class="p-3 outline-none rounded-md w-full border font-semibold"
+              id="mobile"
+              type="text"
+              formControlName="mobile"
+            />
+          </div>
+          <!-- Last name -->
+          <div class="w-full space-y-2">
+            <label class="w-full text-gray-400" for="linked_in"
+              >Linked In</label
+            >
+            <input
+              class="p-3 outline-none rounded-md w-full border font-semibold"
+              id="linked_in"
+              type="text"
+              formControlName="linked_in"
+            />
+          </div>
+          <!-- Birthdate -->
+          <div class="w-full space-y-2">
+            <label class="w-full text-gray-400" for="facebook">Facebook</label>
+            <input
+              class="p-3 outline-none rounded-md w-full border font-semibold"
+              id="facebook"
+              type="text"
+              formControlName="facebook"
+            />
+          </div>
+          <!-- Address -->
+          <div class="w-full space-y-2">
+            <label class="w-full text-gray-400" for="twitter">Twitter</label>
+            <input
+              class="p-3 outline-none rounded-md w-full border font-semibold"
+              id="twitter"
+              type="text"
+              formControlName="twitter"
+            />
+          </div>
+          <!-- Gender -->
+          <div class="w-full space-y-2">
+            <label class="w-full text-gray-400" for="instagram"
+              >Instagram</label
+            >
+
+            <input
+              class="p-3 outline-none rounded-md w-full border font-semibold"
+              id="instagram"
+              type="text"
+              formControlName="instagram"
+            />
+          </div>
+          <!-- Introduction -->
+          <div class="w-full space-y-2">
+            <div class="w-full space-y-2">
+              <label class="w-full text-gray-400" for="github">Github</label>
+
+              <input
+                class="p-3 outline-none rounded-md w-full border font-semibold"
+                id="github"
+                type="text"
+                formControlName="github"
+              />
+            </div>
+          </div>
+
+          <div class="w-full flex items-center justify-center flex-col">
+            <button
+              class="bg-gradient-to-r from-emerald-500 to-sky-500 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-l-full rounded-r-full w-2/5 disabled:bg-slate-400 hover:opacity-75"
+              [disabled]="socialForm.invalid"
+            >
+              {{ data ? "Edit" : "Update" }}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

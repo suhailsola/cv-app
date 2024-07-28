@@ -1,0 +1,144 @@
+<div class="w-full flex flex-col justify-start gap-2 items-center">
+  <h1 class="text-4xl font-bold py-2">Skills</h1>
+  <div class="w-full flex items-start justify-between gap-4 px-6">
+    <div
+      class="w-4/6 sm:w-3/5 flex flex-col bg-slate-50 py-3 gap-4 items-center justify-center mb-1 shadow-md"
+    >
+      <h1 class="text-2xl font-bold my-2">Update your skills</h1>
+      <form
+        class="w-4/6 flex flex-col gap-1"
+        [formGroup]="skillForm"
+        (ngSubmit)="onSubmit()"
+      >
+        <div class="w-full flex items-start justify-center">
+          <div class="w-full flex flex-col">
+            <label class="font-medium w-full text-gray-400" for="skill_name"
+              >Skill name</label
+            ><span
+              *ngIf="
+                skillForm.get('skill_name')?.invalid &&
+                skillForm.get('skill_name')?.touched
+              "
+              class="text-red-500 text-xs"
+            >
+              Skill name is required
+            </span>
+          </div>
+          <div class="flex flex-col w-full gap-1">
+            <input
+              class="p-1 outline-none rounded-md w-full border text-sm"
+              id="skill_name"
+              type="text"
+              formControlName="skill_name"
+            />
+            <div class="flex items-center justify-start gap-2 pl-2">
+              <input
+                class="outline-none rounded-md border text-sm"
+                id="is_language"
+                type="checkbox"
+                formControlName="is_language"
+              />
+              <label class="text-xs text-gray-400" for="is_language"
+                >Is it a language</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Worktitle -->
+        <fieldset [disabled]="skillForm.get('is_language')?.value === false">
+          <div class="w-full flex items-start justify-center">
+            <div class="w-full flex flex-col">
+              <label class="font-medium w-full text-gray-400" for="level"
+                >Level</label
+              >
+              <span
+                *ngIf="
+                  skillForm.get('level')?.invalid &&
+                  skillForm.get('level')?.touched
+                "
+                class="text-red-500 text-xs"
+              >
+                Position is required
+              </span>
+            </div>
+            <select
+              class="p-1 outline-none rounded-md w-full border text-sm"
+              name="level"
+              id="level"
+              formControlName="level"
+            >
+              <option value="">Select level</option>
+              <option value="Basic">Basic</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Fluent">Fluent</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <!-- location -->
+        <div class="w-full flex items-start justify-center">
+          <div class="w-full flex flex-col">
+            <span
+              *ngIf="
+                skillForm.get('is_language')?.invalid &&
+                skillForm.get('is_language')?.touched
+              "
+              class="text-red-500 text-xs"
+            >
+              is_language is required
+            </span>
+          </div>
+        </div>
+
+        <!-- description -->
+        <div class="w-full flex items-start justify-center">
+          <label class="font-medium w-full text-gray-400" for="description"
+            >Description</label
+          >
+          <span
+            *ngIf="
+              skillForm.get('description')?.invalid &&
+              skillForm.get('description')?.touched
+            "
+            class="text-red-500 text-xs"
+          >
+            description is required
+          </span>
+          <textarea
+            class="p-1 outline-none rounded-md w-full border text-sm"
+            id="description"
+            type="text"
+            formControlName="description"
+          ></textarea>
+        </div>
+        <div class="w-full flex items-center justify-center flex-col mt-2">
+          <button
+            class="bg-gradient-to-r from-emerald-500 to-sky-500 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-l-full rounded-r-full w-2/5 disabled:bg-slate-400 hover:opacity-75 text-nowrap text-center"
+            [disabled]="skillForm.invalid"
+          >
+            Update skills
+          </button>
+          <span
+            class="text-red-500 text-xs"
+            *ngIf="skillForm.invalid && skillForm.touched"
+          >
+            Complete form to enable button.
+          </span>
+        </div>
+      </form>
+    </div>
+    <div class="flex flex-col items-center justify-center w-2/5 sm:w-3/5 gap-4">
+      <div
+        class="w-full flex flex-col bg-slate-50 py-3 items-center justify-center min-h-[400px]:"
+      >
+        <div class="w-3/5 sm:w-4/5 flex flex-col gap-2 bg-slate-50">
+          <div *ngFor="let skill of data">
+            <app-skill-card [data]="skill"></app-skill-card>
+          </div>
+          <!-- <app-skill-card></app-skill-card> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

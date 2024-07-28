@@ -4,9 +4,9 @@ export interface Career {
   company: String;
   work_title: String;
   location: String;
-  start_month: Number;
+  start_month: number;
   start_year: Number;
-  end_month?: Number;
+  end_month?: number;
   end_year?: Number;
   summary?: String;
   created_at: Date;

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { CareerCardComponent } from '../../components/career/career-card/career-card.component';
 import { CommonModule } from '@angular/common';
 import {
@@ -11,6 +11,7 @@ import { Career } from './career.type';
 import { CookieService } from 'ngx-cookie-service';
 import { CareerService } from '../../services/career/career.service';
 import { HttpHeaders } from '@angular/common/http';
+import { UtilsService } from '../../services/utils/utils.service';
 
 @Component({
   selector: 'app-career',
@@ -48,7 +49,36 @@ export class CareerComponent implements OnInit {
       summary: [''],
     });
   }
+
   ngOnInit(): void {
-    // this.fetchEdu();
+    this.fetchCareer();
+  }
+
+  fetchCareer() {
+    if (this.cookie) {
+      this.CareerService.getCareer({ headers: this.headers }).subscribe(
+        (res: any) => {
+          console.log(res.data);
+          if (res.data) {
+            this.data = res.data;
+          }
+        },
+      );
+    }
+  }
+
+  onSubmit() {
+    if (this.careerForm.valid) {
+      const careerData = this.careerForm.value;
+
+      if (this.data) {
+        this.CareerService.createCareer(careerData, {
+          headers: this.headers,
+        }).subscribe((res: any) => {
+          console.log(res.data);
+          this.fetchCareer();
+        });
+      }
+    }
   }
 }

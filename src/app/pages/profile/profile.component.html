@@ -1,10 +1,9 @@
-<div class="min-h-screen w-full flex justify-center font-Roboto">
-  <!-- <div class="py-20 flex flex-col items-center w-3/5 gap-4 h-full"> -->
+<div class="w-full flex justify-center font-roboto">
   <div
-    class="flex flex-col items-center justify-center w-2/5 sm:w-3/5 gap-3 py-3 shadow-lg"
+    class="flex flex-col items-center justify-center w-2/5 sm:w-3/5 gap-3 py-3"
   >
     <div
-      class="w-full flex flex-col bg-slate-50 pt-10 py-3 items-center justify-center"
+      class="flex flex-col w-2/5 sm:w-full bg-slate-50 pt-10 py-3 items-center justify-center shadow-lg"
     >
       <h1 class="text-4xl font-bold">
         {{ data ? "Edit" : "Create" }} your Profile
@@ -17,7 +16,7 @@
           (ngSubmit)="onSubmit()"
         >
           <div class="w-full space-y-2">
-            <label class="font-medium w-full text-gray-400" for="firstName"
+            <label class="w-full text-gray-400" for="firstName"
               >First Name</label
             >
             <input
@@ -38,9 +37,7 @@
           </div>
           <!-- Last name -->
           <div class="w-full space-y-2">
-            <label class="font-medium w-full text-gray-400" for="lastName"
-              >Last Name</label
-            >
+            <label class="w-full text-gray-400" for="lastName">Last Name</label>
             <input
               class="p-3 outline-none rounded-md w-full border font-semibold"
               id="lastName"
@@ -59,7 +56,7 @@
           </div>
           <!-- Birthdate -->
           <div class="w-full space-y-2">
-            <label class="font-medium w-full text-gray-400" for="birth_date"
+            <label class="w-full text-gray-400" for="birth_date"
               >Birthdate</label
             >
             <input
@@ -80,9 +77,7 @@
           </div>
           <!-- Address -->
           <div class="w-full space-y-2">
-            <label class="font-medium w-full text-gray-400" for="address"
-              >Address</label
-            >
+            <label class="w-full text-gray-400" for="address">Address</label>
             <input
               class="p-3 outline-none rounded-md w-full border font-semibold"
               id="address"
@@ -101,9 +96,7 @@
           </div>
           <!-- Gender -->
           <div class="w-full space-y-2">
-            <label class="font-medium w-full text-gray-400" for="gender"
-              >Gender</label
-            >
+            <label class="w-full text-gray-400" for="gender">Gender</label>
 
             <select
               class="p-3 outline-none rounded-md w-full border font-semibold"
@@ -127,7 +120,7 @@
           </div>
           <!-- Introduction -->
           <div class="w-full space-y-2">
-            <label class="font-medium w-full text-gray-400" for="introduction"
+            <label class="w-full text-gray-400" for="introduction"
               >Introduction</label
             >
             <textarea
@@ -155,5 +148,6 @@
         </form>
       </div>
     </div>
+    <!-- </div> -->
   </div>
 </div>

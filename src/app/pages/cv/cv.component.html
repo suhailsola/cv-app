@@ -1,0 +1,43 @@
+<div class="w-full flex items-start justify-center font-roboto">
+  <div
+    class="w-4/6 sm:w-3/5 bg-slate-50 flex flex-col items-center justify-start py-6 px-10 gap-5"
+  >
+    <header class="w-full flex flex-col items-center justify-start">
+      <h1 class="text-center text-3xl font-garamond font-bold w-full">
+        {{ data?.profile?.firstName }} {{ data?.profile?.lastName }}
+      </h1>
+      <div
+        class="flex w-full items-center justify-center gap-3 px-2 text-center"
+      >
+        <p class="flex-wrap">
+          <span class="text-blue-600 underline font-serif hover:text-red-600">
+            {{ data?.email }}
+          </span>
+          | {{ data?.socials?.mobile ?? "-" }} |
+          {{ data?.profile?.address ?? "-" }}
+        </p>
+      </div>
+    </header>
+    <section class="w-full">
+      <h2 class="font-serif uppercase text-blue-600">Experience</h2>
+      <hr class="border-black my-3" />
+      <div *ngFor="let career of data?.career">
+        <app-career-card [data]="career"></app-career-card>
+      </div>
+    </section>
+    <section class="w-full">
+      <h2 class="font-serif uppercase text-blue-600">Education</h2>
+      <hr class="border-black my-3" />
+      <div *ngFor="let edu of data?.education">
+        <app-edu-card [data]="edu"></app-edu-card>
+      </div>
+    </section>
+    <section class="w-full">
+      <h2 class="font-serif uppercase text-blue-600">Skills</h2>
+      <hr class="border-black my-3" />
+      <div *ngFor="let skill of data?.skill">
+        <app-skill-card [data]="skill"></app-skill-card>
+      </div>
+    </section>
+  </div>
+</div>

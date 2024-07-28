@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Career } from '../../../pages/career/career.type';
+import { UtilsService } from '../../../services/utils/utils.service';
 
 @Component({
   selector: 'app-career-card',
@@ -8,6 +9,12 @@ import { Career } from '../../../pages/career/career.type';
   templateUrl: './career-card.component.html',
 })
 export class CareerCardComponent {
+  constructor(private utilService: UtilsService) {
+    this.getMonthName = this.utilService.getMonthName;
+  }
+
+  getMonthName: (month: number) => string;
+
   @Input() data: Career = {
     id: 1,
     user_id: 1,

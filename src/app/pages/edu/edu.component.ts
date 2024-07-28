@@ -35,7 +35,7 @@ export class EduComponent implements OnInit {
     if (this.cookie) {
       this.headers = new HttpHeaders({
         Authorization: `Bearer ${this.cookie}`,
-      });
+        });
     }
 
     this.educationForm = this.formBuilder.group({
