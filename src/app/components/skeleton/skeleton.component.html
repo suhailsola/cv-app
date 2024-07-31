@@ -1,1 +1,16 @@
-<p>skeleton works!</p>
+<div
+  *ngIf="isLoading"
+  [class]="
+    'animate-pulse flex flex-col items-center px-2 gap-2 m-auto ' +
+    margin +
+    ' ' +
+    width +
+    ' ' +
+    maxWidth
+  "
+>
+  <div
+    *ngFor="let line of [].constructor(lines)"
+    [class]="'bg-gray-200 rounded w-full ' + height"
+  ></div>
+</div>

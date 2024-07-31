@@ -35,7 +35,7 @@ export class EduComponent implements OnInit {
     if (this.cookie) {
       this.headers = new HttpHeaders({
         Authorization: `Bearer ${this.cookie}`,
-        });
+      });
     }
 
     this.educationForm = this.formBuilder.group({
@@ -75,6 +75,7 @@ export class EduComponent implements OnInit {
         }).subscribe((res: any) => {
           console.log(res.data);
           this.fetchEdu();
+          this.educationForm.reset();
         });
       }
     }

@@ -72,6 +72,7 @@ export class SkillsComponent implements OnInit {
         }).subscribe((res: any) => {
           console.log(res.data);
           this.fetchSkill();
+          this.skillForm.reset();
         });
       }
     }

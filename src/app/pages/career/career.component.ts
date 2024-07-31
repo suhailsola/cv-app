@@ -77,6 +77,7 @@ export class CareerComponent implements OnInit {
         }).subscribe((res: any) => {
           console.log(res.data);
           this.fetchCareer();
+          this.careerForm.reset();
         });
       }
     }

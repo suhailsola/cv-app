@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { CareerCardComponent } from '../../components/career/career-card/career-card.component';
 import { EduCardComponent } from '../../components/edu/edu-card/edu-card.component';
 import { SkillCardComponent } from '../../components/skill/skill-card/skill-card.component';
+import { SkeletonComponent } from '../../components/skeleton/skeleton.component';
 
 @Component({
   selector: 'app-cv',
@@ -15,6 +16,7 @@ import { SkillCardComponent } from '../../components/skill/skill-card/skill-card
     CareerCardComponent,
     EduCardComponent,
     SkillCardComponent,
+    SkeletonComponent,
   ],
   templateUrl: './cv.component.html',
 })
@@ -22,6 +24,9 @@ export class CvComponent implements OnInit {
   @Input() data!: any;
   cookie: string | null = null;
   headers: HttpHeaders;
+
+  cvLoading = true;
+
   constructor(
     private cookieService: CookieService,
     private CVService: CvService,
@@ -45,6 +50,7 @@ export class CvComponent implements OnInit {
         console.log(res.data);
         if (res.data) {
           this.data = res.data;
+          this.cvLoading = false;
         }
       });
     }
